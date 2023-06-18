@@ -1,10 +1,17 @@
 import express, { Application, Request, Response } from "express";
+import Database from "./config/database";
 
 class App {
   public app: Application;
 
   constructor() {
     this.app = express();
+    this.databaseSync();
+  }
+
+  protected databaseSync(): void {
+    const db = new Database();
+    db.sequelize?.sync();
   }
 
   protected routes(): void {
