@@ -1,0 +1,43 @@
+Arguments: 
+  /home/tridenda/.nvm/versions/node/v18.12.1/bin/node /home/tridenda/.nvm/versions/node/v18.12.1/bin/yarn add -D typescript ts-node nodemon @type/node @type/express
+
+PATH: 
+  /home/tridenda/.vscode-server/bin/b380da4ef1ee00e224a15c1d4d9793e27c2b6302/bin/remote-cli:/home/tridenda/.nvm/versions/node/v18.12.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files (x86)/Common Files/Oracle/Java/javapath:/mnt/c/Windows/system32:/mnt/c/Windows:/mnt/c/Windows/System32/Wbem:/mnt/c/Windows/System32/WindowsPowerShell/v1.0/:/mnt/c/Windows/System32/OpenSSH/:/mnt/c/Program Files/MySQL/MySQL Server 8.0/bin:/mnt/c/ProgramData/chocolatey/bin:/mnt/c/Program Files/nodejs/:/mnt/c/Users/tri.denda/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/tri.denda/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Program Files/Java/jdk1.8.0_202/bin:/mnt/c/Users/tri.denda/AppData/Local/Programs/Git/cmd:/mnt/c/mandiri/app/apache-maven-3.3.9/bin:/mnt/c/java/jdk1.8.0_271/bin:/mnt/c/ghcup/bin:/mnt/c/Users/tri.denda/AppData/Roaming/npm
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  18.12.1
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@type%2fnode: Not found
+      at params.callback [as _callback] (/home/tridenda/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at self.callback (/home/tridenda/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:513:28)
+      at Request.<anonymous> (/home/tridenda/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:513:28)
+      at IncomingMessage.<anonymous> (/home/tridenda/.nvm/versions/node/v18.12.1/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:627:28)
+      at IncomingMessage.emit (node:events:525:35)
+      at endReadableNT (node:internal/streams/readable:1359:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
+
+npm manifest: 
+  {
+    "name": "typescript-crud",
+    "version": "1.0.0",
+    "main": "index.js",
+    "repository": "git@github.com:tridenda/typescript-crud.git",
+    "author": "Tri Denda <tridenda.nk@gmail.com>",
+    "license": "MIT"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
