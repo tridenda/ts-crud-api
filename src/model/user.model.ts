@@ -31,9 +31,6 @@ export class User extends Model {
   @Column(DataType.DATE)
   birthday!: Date;
 
-  @Column(DataType.STRING)
-  username!: string;
-
   @CreatedAt
   creationDate: Date | undefined;
 

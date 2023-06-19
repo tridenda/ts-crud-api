@@ -2,7 +2,7 @@ import { User } from "../../model/user.model";
 import IUserRepositoy from "./user.interface";
 
 export class UserRepository implements IUserRepositoy {
-  async save(user: User): Promise<void> {
+  public async save(user: User): Promise<void> {
     try {
       await User.create({
         firstname: user.firstname,
@@ -14,7 +14,7 @@ export class UserRepository implements IUserRepositoy {
     }
   }
 
-  async update(user: User): Promise<void> {
+  public async update(user: User): Promise<void> {
     try {
       const newUser = await User.findOne({
         where: { id: user.id },
@@ -33,7 +33,7 @@ export class UserRepository implements IUserRepositoy {
     }
   }
 
-  async delete(id: number): Promise<void> {
+  public async delete(id: number): Promise<void> {
     try {
       const newUser = await User.findOne({
         where: { id: id },
@@ -49,7 +49,7 @@ export class UserRepository implements IUserRepositoy {
     }
   }
 
-  async findById(id: number): Promise<User> {
+  public async findById(id: number): Promise<User> {
     try {
       const user = await User.findOne({
         where: { id: id },
@@ -65,7 +65,7 @@ export class UserRepository implements IUserRepositoy {
     }
   }
 
-  async findAll(): Promise<User[]> {
+  public async findAll(): Promise<User[]> {
     try {
       return await User.findAll();
     } catch (error) {
