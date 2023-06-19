@@ -7,6 +7,7 @@ class App {
   constructor() {
     this.app = express();
     this.databaseSync();
+    this.routes();
   }
 
   protected databaseSync(): void {
