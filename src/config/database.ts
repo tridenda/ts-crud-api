@@ -1,5 +1,6 @@
 import * as dotenv from "dotenv";
 import { Sequelize } from "sequelize-typescript";
+import { User } from "../model/user.model";
 
 dotenv.config();
 
@@ -24,6 +25,7 @@ class Database {
       password: this.POSTGRES_PASSWORD,
       database: this.POSTGRES_DB,
       dialect: "postgres",
+      models: [User],
     });
 
     this.sequelize
