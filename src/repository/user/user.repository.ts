@@ -14,6 +14,22 @@ export class UserRepository implements IUserRepositoy {
     }
   }
 
+  public async signIn(user: User): Promise<User> {
+    try {
+      const newUser = await User.findOne({
+        where: { email: user.email },
+      });
+
+      if (!newUser) {
+        throw new Error("User unregistered");
+      }
+
+      return newUser;
+    } catch (error) {
+      throw new Error("Failed to find the user");
+    }
+  }
+
   public async update(user: User): Promise<void> {
     try {
       const newUser = await User.findOne({

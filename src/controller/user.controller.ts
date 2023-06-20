@@ -25,7 +25,27 @@ class UserController {
     }
   }
 
-  // public async signIn(req: Request, res: Response) {}
+  public async signIn(req: Request, res: Response) {
+    try {
+      const userParams = new User();
+      userParams.fullname = req.body.fullname;
+      userParams.email = req.body.email;
+      userParams.password = req.body.password;
+      const userService = new UserService();
+      const user = (await userService.signIn(userParams)) as unknown as User;
+
+      res.status(201).json({
+        status: "Ok!",
+        message: "Successfully create user",
+        user: user,
+      });
+    } catch (error) {
+      res.status(201).json({
+        status: "Internal server error",
+        message: "Internal server error",
+      });
+    }
+  }
 
   public async delete(req: Request, res: Response) {
     try {

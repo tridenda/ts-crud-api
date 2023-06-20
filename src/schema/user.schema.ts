@@ -14,6 +14,13 @@ export const signUpSchema = z.object({
   }),
 });
 
+export const signInSchema = z.object({
+  body: z.object({
+    email: z.string(),
+    password: z.string(),
+  }),
+});
+
 export const updateUserSchema = z.object({
   params: z.object({ id: z.string() }),
   body: z

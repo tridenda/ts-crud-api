@@ -14,12 +14,24 @@ class UserService implements IUserService {
       user.password = hash;
       await new UserRepository().signUp(user);
     } catch (error) {
-      throw new Error("Method not implemented.");
+      throw new Error("Failed to sign up!");
     }
   }
 
-  async signIn(user: User): Promise<void> {
-    throw new Error("Method not implemented.");
+  async signIn(userParams: User): Promise<User> {
+    try {
+      const userRepository = new UserRepository();
+      const user = (await userRepository.signIn(userParams)) as unknown as User;
+      const match = await bcrypt.compare(userParams.password, user.password);
+
+      if (!match) {
+        throw new Error("Email or Password doesn't match!");
+      }
+
+      return user;
+    } catch (error) {
+      throw new Error("Failed to sign in!!!!!!!!!!");
+    }
   }
 }
 
