@@ -18,5 +18,6 @@ POSTGRES_USER=<USER>
 POSTGRES_PASSWORD=<PASSWORD>
 POSTGRES_DB=<DATABASE_NAME>
 ```
+
 4. Run `yarn install`
 5. Run `yarn start-dev`
