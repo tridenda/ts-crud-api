@@ -2,8 +2,8 @@
 
 ## Need to Install
 
-- NodeJS
-- PostgreSQL
+- NodeJS v18+
+- PostgreSQL v15+
 
 ## How to Run
 
