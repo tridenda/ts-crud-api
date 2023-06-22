@@ -1,8 +1,8 @@
 {
-  "name": "typescript-crud",
+  "name": "ts-crud-api",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "git@github.com:tridenda/typescript-crud.git",
+  "repository": "git@github.com:tridenda/ts-crud-api.git",
   "author": "Tri Denda <tridenda.nk@gmail.com>",
   "license": "MIT",
   "scripts": {
