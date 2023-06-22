@@ -7,8 +7,9 @@
 
 ## How to Run
 
-1. Create database using `createdb <DATABASE NAME>`
-2. Create `.env` file to add db credential
+1. Run PostgreSQL using `sudo service postgres start`
+2. Create database using `createdb <DATABASE NAME>`
+3. Create `.env` file to add db credential
 
 ```
 POSTGRES_HOST=<HOSTNAME>
