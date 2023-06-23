@@ -23,20 +23,17 @@ export class User extends Model {
   id!: number;
 
   @Column(DataType.STRING)
-  firstname!: string;
+  fullname!: string;
 
   @Column(DataType.STRING)
-  lastname!: string;
+  email!: string;
 
-  @Column(DataType.DATE)
-  birthday!: Date;
+  @Column(DataType.STRING)
+  password!: string;
 
   @CreatedAt
   creationDate: Date | undefined;
 
   @UpdatedAt
   updatedOn: Date | undefined;
-
-  @DeletedAt
-  deletionDate: Date | undefined;
 }

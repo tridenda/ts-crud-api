@@ -2,15 +2,31 @@ import { User } from "../../model/user.model";
 import IUserRepositoy from "./user.interface";
 
 export class UserRepository implements IUserRepositoy {
-  public async save(user: User): Promise<void> {
+  public async signUp(user: User): Promise<void> {
     try {
       await User.create({
-        firstname: user.firstname,
-        lastname: user.lastname,
-        birthday: user.birthday,
+        fullname: user.fullname,
+        email: user.email,
+        password: user.password,
       });
     } catch (error) {
       throw new Error("Failed to create user!");
+    }
+  }
+
+  public async signIn(user: User): Promise<User> {
+    try {
+      const newUser = await User.findOne({
+        where: { email: user.email },
+      });
+
+      if (!newUser) {
+        throw new Error("User unregistered");
+      }
+
+      return newUser;
+    } catch (error) {
+      throw new Error("Failed to find the user");
     }
   }
 
@@ -24,9 +40,9 @@ export class UserRepository implements IUserRepositoy {
         throw new Error("User not found!");
       }
 
-      newUser.firstname = user.firstname;
-      newUser.lastname = user.lastname;
-      newUser.birthday = user.birthday;
+      newUser.fullname = user.fullname;
+      newUser.email = user.email;
+      newUser.password = user.password;
       newUser.save();
     } catch (error) {
       throw new Error("Failed to update user!");

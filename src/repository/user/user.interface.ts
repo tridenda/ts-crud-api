@@ -1,7 +1,8 @@
 import { User } from "../../model/user.model";
 
 interface IUserRepositoy {
-  save(user: User): Promise<void>;
+  signUp(user: User): Promise<void>;
+  signIn(user: User): Promise<User>;
   update(user: User): Promise<void>;
   delete(id: number): Promise<void>;
   findById(id: number): Promise<User>;
