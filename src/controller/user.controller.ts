@@ -1,19 +1,43 @@
 import { Request, Response } from "express";
 import { User } from "../model/user.model";
 import { UserRepository } from "../repository/user/user.repository";
+import UserService from "../service/user/user.service";
 
 class UserController {
-  public async create(req: Request, res: Response) {
+  public async signUp(req: Request, res: Response) {
     try {
       const newUser = new User();
-      newUser.firstname = req.body.firstname;
-      newUser.lastname = req.body.lastname;
-      newUser.birthday = req.body.birthday;
-      await new UserRepository().save(newUser);
+      newUser.fullname = req.body.fullname;
+      newUser.email = req.body.email;
+      newUser.password = req.body.password;
+
+      new UserService().signUp(newUser);
 
       res.status(201).json({
         status: "Ok!",
         message: "Successfully create user",
+      });
+    } catch (error) {
+      res.status(201).json({
+        status: "Internal server error",
+        message: "Internal server error",
+      });
+    }
+  }
+
+  public async signIn(req: Request, res: Response) {
+    try {
+      const userParams = new User();
+      userParams.fullname = req.body.fullname;
+      userParams.email = req.body.email;
+      userParams.password = req.body.password;
+      const userService = new UserService();
+      const user = (await userService.signIn(userParams)) as unknown as User;
+
+      res.status(201).json({
+        status: "Ok!",
+        message: "Successfully create user",
+        user: user,
       });
     } catch (error) {
       res.status(201).json({
@@ -81,10 +105,10 @@ class UserController {
       const newUser = new User();
 
       newUser.id = id;
-      newUser.firstname = req.body.firstname;
-      newUser.lastname = req.body.lastname;
-      newUser.birthday = req.body.birthday;
-      await new UserRepository().update(newUser);
+      newUser.fullname = req.body.fullname;
+      newUser.email = req.body.email;
+      newUser.password = req.body.password;
+      // await new UserRepository().update(newUser);
 
       res.status(201).json({
         status: "Ok!",
