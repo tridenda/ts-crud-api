@@ -11,16 +11,20 @@ class UserController {
       newUser.email = req.body.email;
       newUser.password = req.body.password;
 
-      new UserService().signUp(newUser);
+      const user = await new UserService().signUp(newUser);
 
       res.status(201).json({
         status: "Ok!",
         message: "Successfully create user",
+        user: {
+          fullname: user.fullname,
+          email: user.email,
+        },
       });
-    } catch (error) {
+    } catch (error: any) {
       res.status(201).json({
-        status: "Internal server error",
-        message: "Internal server error",
+        status: "Failed",
+        message: error.message,
       });
     }
   }
@@ -37,7 +41,10 @@ class UserController {
       res.status(201).json({
         status: "Ok!",
         message: "Successfully create user",
-        user: user,
+        user: {
+          fullname: user.fullname,
+          email: user.email,
+        },
       });
     } catch (error) {
       res.status(201).json({

@@ -1,4 +1,6 @@
 import express, { Application, Request, Response } from "express";
+import cors from "cors";
+
 import Database from "./config/database";
 import userRouter from "./router/user.router";
 
@@ -13,6 +15,7 @@ class App {
   }
 
   protected plugins(): void {
+    this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
   }

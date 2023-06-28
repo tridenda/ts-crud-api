@@ -2,15 +2,27 @@ import { User } from "../../model/user.model";
 import IUserRepositoy from "./user.interface";
 
 export class UserRepository implements IUserRepositoy {
-  public async signUp(user: User): Promise<void> {
+  public async signUp(user: User): Promise<User> {
     try {
-      await User.create({
+      const isUnique = await User.findOne({
+        where: { email: user.email },
+      })
+        .then((token) => token == null)
+        .then((isUnique) => isUnique);
+
+      if (!isUnique) {
+        throw new Error("User has been registered!");
+      }
+
+      const newUser = await User.create({
         fullname: user.fullname,
         email: user.email,
         password: user.password,
       });
-    } catch (error) {
-      throw new Error("Failed to create user!");
+
+      return newUser;
+    } catch (error: any) {
+      throw new Error(error.message);
     }
   }
 

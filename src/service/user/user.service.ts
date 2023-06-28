@@ -5,16 +5,16 @@ import { UserRepository } from "../../repository/user/user.repository";
 import IUserService from "./user.interface";
 
 class UserService implements IUserService {
-  async signUp(user: User): Promise<void> {
+  async signUp(user: User): Promise<User> {
     try {
       const saltRounds = 10;
       const salt = bcrypt.genSaltSync(saltRounds);
       const hash = bcrypt.hashSync(user.password, salt);
 
       user.password = hash;
-      await new UserRepository().signUp(user);
-    } catch (error) {
-      throw new Error("Failed to sign up!");
+      return await new UserRepository().signUp(user);
+    } catch (error: any) {
+      throw new Error(error.message);
     }
   }
 
