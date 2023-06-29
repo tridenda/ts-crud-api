@@ -2,7 +2,7 @@ import express, { Application, Request, Response } from "express";
 import cors from "cors";
 
 import Database from "./config/database";
-import userRouter from "./router/user.router";
+import userRouter from "./routers/user.router";
 
 class App {
   public app: Application;

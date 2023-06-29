@@ -1,8 +1,8 @@
 import * as dotenv from "dotenv";
 import { Sequelize } from "sequelize-typescript";
-import { User } from "../model/user/user.model";
-import { Product } from "../model/product/product.model";
-import { Rating } from "../model/product/rating.model";
+import { User } from "../models/user/user.model";
+import { Product } from "../models/product/product.model";
+import { Rating } from "../models/product/rating.model";
 
 dotenv.config();
 

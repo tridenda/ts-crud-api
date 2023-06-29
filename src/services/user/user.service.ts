@@ -1,7 +1,7 @@
 import bcrypt from "bcrypt";
 
-import { User } from "../../model/user/user.model";
-import { UserRepository } from "../../repository/user/user.repository";
+import { User } from "../../models/user/user.model";
+import { UserRepository } from "../../repositories/user/user.repository";
 import IUserService from "./user.interface";
 
 class UserService implements IUserService {

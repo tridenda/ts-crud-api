@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
-import { User } from "../model/user/user.model";
-import { UserRepository } from "../repository/user/user.repository";
-import UserService from "../service/user/user.service";
+import { User } from "../models/user/user.model";
+import { UserRepository } from "../repositories/user/user.repository";
+import UserService from "../services/user/user.service";
 
 class UserController {
   public async signUp(req: Request, res: Response) {

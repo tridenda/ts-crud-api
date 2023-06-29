@@ -1,10 +1,10 @@
-import userController from "../controller/user.controller";
-import validate from "../helper/validate";
+import userController from "../controllers/user.controller";
+import validate from "../helpers/validate";
 import {
   signInSchema,
   signUpSchema,
   updateUserSchema,
-} from "../schema/user.schema";
+} from "../schemas/user.schema";
 import BaseRoutes from "./base/base-routes.router";
 
 class UserRoutes extends BaseRoutes {
