@@ -33,12 +33,12 @@ export class UserRepository implements IUserRepositoy {
       });
 
       if (!newUser) {
-        throw new Error("User unregistered");
+        throw new Error("Email or Password doesn't match!");
       }
 
       return newUser;
-    } catch (error) {
-      throw new Error("Failed to find the user");
+    } catch (error: any) {
+      throw new Error(error.message);
     }
   }
 

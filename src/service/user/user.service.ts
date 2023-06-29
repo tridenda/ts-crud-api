@@ -29,8 +29,8 @@ class UserService implements IUserService {
       }
 
       return user;
-    } catch (error) {
-      throw new Error("Failed to sign in!!!!!!!!!!");
+    } catch (error: any) {
+      throw new Error(error.message);
     }
   }
 }

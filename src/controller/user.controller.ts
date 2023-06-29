@@ -14,7 +14,7 @@ class UserController {
       const user = await new UserService().signUp(newUser);
 
       res.status(201).json({
-        status: "Ok!",
+        status: "Success",
         message: "Successfully create user",
         user: {
           fullname: user.fullname,
@@ -39,17 +39,17 @@ class UserController {
       const user = (await userService.signIn(userParams)) as unknown as User;
 
       res.status(201).json({
-        status: "Ok!",
-        message: "Successfully create user",
+        status: "Success",
+        message: "Successfully sign in",
         user: {
           fullname: user.fullname,
           email: user.email,
         },
       });
-    } catch (error) {
+    } catch (error: any) {
       res.status(201).json({
-        status: "Internal server error",
-        message: "Internal server error",
+        status: "Failed",
+        message: error.message,
       });
     }
   }
