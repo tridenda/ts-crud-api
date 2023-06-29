@@ -1,6 +1,6 @@
 import bcrypt from "bcrypt";
 
-import { User } from "../../model/user.model";
+import { User } from "../../model/user/user.model";
 import { UserRepository } from "../../repository/user/user.repository";
 import IUserService from "./user.interface";
 

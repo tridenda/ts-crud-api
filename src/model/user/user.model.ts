@@ -2,7 +2,6 @@ import {
   Column,
   CreatedAt,
   DataType,
-  DeletedAt,
   Model,
   PrimaryKey,
   Table,
