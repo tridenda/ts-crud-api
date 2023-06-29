@@ -3,6 +3,7 @@ import cors from "cors";
 
 import Database from "./config/database";
 import userRouter from "./routers/user.router";
+import productRouter from "./routers/product.router";
 
 class App {
   public app: Application;
@@ -30,6 +31,7 @@ class App {
       res.send("Welcome Home!");
     });
     this.app.use("/api/v1/user", userRouter);
+    this.app.use("/api/v1/product", productRouter);
   }
 }
 

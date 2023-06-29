@@ -4,6 +4,7 @@ import {
   CreatedAt,
   DataType,
   ForeignKey,
+  HasOne,
   Model,
   PrimaryKey,
   Table,
@@ -36,10 +37,7 @@ export class Product extends Model {
   @Column(DataType.STRING)
   image!: string;
 
-  @ForeignKey(() => Rating)
-  ratingId!: number;
-
-  @BelongsTo(() => Rating, { onDelete: "cascade", foreignKey: "id" })
+  @HasOne(() => Rating)
   rating!: Rating;
 
   @CreatedAt

@@ -22,7 +22,7 @@ class UserController {
         },
       });
     } catch (error: any) {
-      res.status(201).json({
+      res.status(501).json({
         status: "Failed",
         message: error.message,
       });
@@ -115,7 +115,8 @@ class UserController {
       newUser.fullname = req.body.fullname;
       newUser.email = req.body.email;
       newUser.password = req.body.password;
-      // await new UserRepository().update(newUser);
+
+      await new UserRepository().update(newUser);
 
       res.status(201).json({
         status: "Ok!",

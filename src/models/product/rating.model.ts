@@ -1,6 +1,8 @@
 import {
+  BelongsTo,
   Column,
   DataType,
+  ForeignKey,
   HasOne,
   Model,
   PrimaryKey,
@@ -27,6 +29,12 @@ export class Rating extends Model {
   @Column(DataType.INTEGER)
   count!: number;
 
-  @HasOne(() => Product)
+  @ForeignKey(() => Product)
+  productId!: number;
+
+  @BelongsTo(() => Product, {
+    onDelete: "cascade",
+    foreignKey: "id",
+  })
   product!: Product;
 }
