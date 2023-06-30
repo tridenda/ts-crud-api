@@ -1,9 +1,7 @@
 import {
-  BelongsTo,
   Column,
   CreatedAt,
   DataType,
-  ForeignKey,
   HasOne,
   Model,
   PrimaryKey,
@@ -33,6 +31,9 @@ export class Product extends Model {
 
   @Column(DataType.STRING)
   description!: string;
+
+  @Column(DataType.STRING)
+  category!: string;
 
   @Column(DataType.STRING)
   image!: string;

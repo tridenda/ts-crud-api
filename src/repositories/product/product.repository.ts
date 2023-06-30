@@ -10,6 +10,7 @@ export class ProductRepository implements IProductRepository {
           title: product.title,
           price: product.price,
           description: product.description,
+          category: product.category,
           image: product.image,
           rating: {
             rate: product.rating.rate,
@@ -23,8 +24,20 @@ export class ProductRepository implements IProductRepository {
     }
   }
 
-  deleteProduct(productId: number): Promise<void> {
-    throw new Error("Method not implemented.");
+  public async deleteProduct(productId: number): Promise<void> {
+    try {
+      const newProduct = await Product.findOne({
+        where: { id: productId },
+      });
+
+      if (!newProduct) {
+        throw new Error("Product not found!");
+      }
+
+      newProduct.destroy();
+    } catch (error: any) {
+      throw new Error(error.message);
+    }
   }
 
   updateProduct(productId: number): Promise<void> {

@@ -9,6 +9,7 @@ export const addProductSchema = z.object({
     description: z
       .string()
       .min(5, { message: "Description must be greater than 8 characters" }),
+    category: z.string(),
     image: z.string(),
     rating: z
       .object({

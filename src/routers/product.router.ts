@@ -6,10 +6,11 @@ import BaseRoutes from "./base/base-routes.router";
 class ProductRouter extends BaseRoutes {
   routes(): void {
     this.router.post(
-      "/add",
+      "/addProduct",
       validate(addProductSchema),
       productController.addProduct
     );
+    this.router.delete("/deleteProduct/:id", productController.deleteProduct);
     // this.router.post("/signin", validate(signInSchema), userController.signIn);
   }
 }

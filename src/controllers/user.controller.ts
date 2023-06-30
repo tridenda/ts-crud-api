@@ -60,7 +60,7 @@ class UserController {
       await new UserRepository().delete(id);
 
       res.status(201).json({
-        status: "Ok!",
+        status: "Success",
         message: "Successfully delete user",
       });
     } catch (error) {
