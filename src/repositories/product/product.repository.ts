@@ -5,13 +5,19 @@ import { IProductRepository } from "./product.interface";
 export class ProductRepository implements IProductRepository {
   public async createProduct(product: Product): Promise<void> {
     try {
-      await Product.create({
-        title: product.title,
-        price: product.price,
-        description: product.description,
-        image: product.image,
-        rating: product.rating,
-      });
+      await Product.create(
+        {
+          title: product.title,
+          price: product.price,
+          description: product.description,
+          image: product.image,
+          rating: {
+            rate: product.rating.rate,
+            count: product.rating.count,
+          },
+        },
+        { include: [{ model: Rating }] }
+      );
     } catch (error: any) {
       throw new Error(error.message);
     }
